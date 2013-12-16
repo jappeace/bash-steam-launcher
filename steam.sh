@@ -36,4 +36,4 @@ echo "importing the cookie"
 )
 sudo -u $steam bash $steamHome"/steam/steam.sh"
 echo "cleaning up"
-#rm $origFile $steamFile
+rm $origFile $steamFile
