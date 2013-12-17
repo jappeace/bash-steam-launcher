@@ -4,15 +4,8 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-#the steam user
-steam="steam"
-#the user that has acces to the x server
-user="jappie"
-steamHome="/home/"$steam
-userHome="/home/"$user
-userFile=$userHome/"display"
-steamFile=$steamHome/"display"
-xauth=".Xauthority"
+# include the config
+source $1
 
 echo "deleting old files"
 rm $origFile $steamFile
@@ -34,6 +27,5 @@ echo "importing the cookie"
 (
 	sudo -u $steam xauth -i nmerge $steamFile
 )
-sudo -u $steam bash $steamHome"/steam/steam.sh"
 echo "cleaning up"
 rm $origFile $steamFile
