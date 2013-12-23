@@ -18,4 +18,4 @@ sudo bumblebeed --daemon
 sudo bash $DIR/getx.sh $DIR/config.sh
 
 # run steam with bumblebee, primusrun
-sudo -u $steam bash $steamHome"/steam/steam.sh"
+sudo -u $steam bash primusrun $steamHome"/steam/steam.sh"
