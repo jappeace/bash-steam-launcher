@@ -9,16 +9,17 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 RUNFILE=$DIR"/bootstrap.sh"
 EXEC="/usr/local/bin/runsteam"
-PERM=`sudo -l | grep $EXEC`
-echo $PERM
-if [$PERM == ""] 
+PERM=`sudo -l | grep $RUNFILE`
+if [ "" == "$PERM" ]
 then
+	echo "please add the following line to the opening editor:"
+	echo "%wheel ALL=(root) NOPASSWD: $RUNFILE"
+	sudo visudo
+	echo "installing executable"
 	sudo ln -s $DIR"/run.sh" $EXEC
 	sudo chmod +x $EXEC
-	echo "please add the following line to the opening editor:"
-	echo "%wheel ALL=(root) NOPASSWD: $EXEC"
-	sudo visudo
+	sudo -K
 	echo "now rerun this script"
 else
-	sudo bash $RUNFILE
+	sudo $RUNFILE
 fi
