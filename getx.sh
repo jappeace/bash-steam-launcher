@@ -4,7 +4,6 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-# include the config
 source $1
 
 echo "deleting old files"

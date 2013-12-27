@@ -8,14 +8,9 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-#include configuration
-source $DIR/config.sh
-
-# run bumblebee
-sudo bumblebeed --daemon
+config=$DIR/config.sh
 
 # get the x session
-sudo bash $DIR/getx.sh $DIR/config.sh
+sudo bash $DIR/getx.sh $config
 
-# run steam with bumblebee, primusrun
-sudo -u $steam bash primusrun $steamHome"/steam/steam.sh"
+sudo bash $DIR/openwindow.sh $config
