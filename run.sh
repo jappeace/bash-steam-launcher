@@ -11,7 +11,7 @@ RUNFILE=$DIR"/bootstrap.sh"
 PERM=`sudo -l | grep $RUNFILE`
 if [ "" == "$PERM" ]
 then
-	EXEC="/usr/local/bin/steam"
+	EXEC="/usr/local/bin/runsteam"
 	echo "please add the following line to the opening editor:"
 	echo "%wheel ALL=(root) NOPASSWD: $RUNFILE"
 	sudo visudo
