@@ -24,14 +24,14 @@ echo "chroot into 32 bit envoirement and execute chrootedCommands"
 linux32 chroot $NEW_ROOT /bin/bash -c "sudo -u steam steam"
 
 echo "unmounting evreything"
-umount /dev $NEW_ROOT/dev
-umount /dev/pts $NEW_ROOT/dev/pts
-umount /dev/shm $NEW_ROOT/dev/shm
-umount /proc $NEW_ROOT/proc
-umount /sys $NEW_ROOT/sys
+umount $NEW_ROOT/dev
+umount $NEW_ROOT/dev/pts
+umount $NEW_ROOT/dev/shm
+umount $NEW_ROOT/proc
+umount $NEW_ROOT/sys
 
-umount /run $NEW_ROOT/run
+umount $NEW_ROOT/run
 
-umount /usr/portage $NEW_ROOT/usr/portage/
+umount $NEW_ROOT/usr/portage/
 
-umount /tmp $NEW_ROOT/tmp
+umount $NEW_ROOT/tmp
