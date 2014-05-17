@@ -1,9 +1,6 @@
 #! /bin/bash
 NEW_ROOT="/mnt/32bit"
 
-# make the x server accesable
-xhost +
-
 echo "prep for chrooting"
 echo "mounting virtual fs'es"
 mount -o bind /dev $NEW_ROOT/dev
@@ -23,10 +20,5 @@ mount -o bind /usr/portage $NEW_ROOT/usr/portage/
 echo "mounting tmp (which is tmpfs, so fast)"
 mount -o bind /tmp $NEW_ROOT/tmp
 
-chrootedCommands() {
-	echo "let user steam execute steam"
-	sudo -u steam steam
-}
-
 echo "chroot into 32 bit envoirement and execute chrootedCommands"
-linux32 chroot $NEW_ROOT chrootedCommands
+linux32 chroot $NEW_ROOT /bin/bash -c "sudo -u steam steam"
