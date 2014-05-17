@@ -10,4 +10,4 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 echo "disabling x'es build in autentication (its not that kind of server anyway in my case)"
 xhost +
 
-sudo bash $DIR/run.sh
+sudo $DIR/run.sh
