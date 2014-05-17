@@ -4,4 +4,4 @@ source $1
 sudo bumblebeed --daemon
 
 # run steam with bumblebee, primusrun
-sudo -u $steam bash primusrun $steamHome"/steam/steam.sh"
+sudo -u $steam optirun $steamHome"/steam/steam.sh"
